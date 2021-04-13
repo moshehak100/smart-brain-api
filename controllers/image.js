@@ -2,10 +2,11 @@ const Clarifai = require('clarifai');
 
 //You must add your own API key here from Clarifai. 
 const app = new Clarifai.App({
- apiKey: 'YOUR API KEY HERE'
+ apiKey: '76eadca252fe4e51bd8d98224fd4bb54'
 });
 
 const handleApiCall = (req, res) => {
+
   app.models
     // HEADS UP! Sometimes the Clarifai Models can be down or not working as they are constantly getting updated.
     // A good way to check if the model you are using is up, is to check them on the clarifai website. For example,
@@ -18,9 +19,13 @@ const handleApiCall = (req, res) => {
     // .predict('c0c0ac362b03416da06ab3fa36fb58e3', req.body.input)
     .predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
     .then(data => {
+      console.log('Data:', data);
       res.json(data);
     })
-    .catch(err => res.status(400).json('unable to work with API'))
+    .catch((err) => {
+      console.log('unable to work with API');
+      res.status(400).json('unable to work with API');
+    });
 }
 
 const handleImage = (req, res, db) => {
