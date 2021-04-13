@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "script.js",
   "scripts": {
-    "start": "set PORT=3000&nodemon server.js"
+    "start": "node server.js",
+    "start:dev": "set PORT=3000&nodemon server.js"
   },
   "keywords": [],
   "author": "",
