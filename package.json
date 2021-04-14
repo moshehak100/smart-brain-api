@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "script.js",
   "scripts": {
-    "start": "serve -s build",
+    "start": "node server.js",
     "start:dev": "set PORT=3000&nodemon server.js"
   },
   "keywords": [],
@@ -16,8 +16,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.21.6",
-    "pg": "^8.3.3",
-    "serve": "^11.3.2"
+    "pg": "^8.3.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
