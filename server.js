@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
@@ -26,7 +25,7 @@ const db = knex({
   // connect to your own database here
   client: 'pg',
   connection: {
-    connectionString : process.env.DATABASE_URL,
+    connectionString : process.env.DATABASE_URLs,
     ssl: {
       rejectUnauthorized: false
     }
@@ -36,7 +35,7 @@ const db = knex({
 const app = express();
 
 app.use(cors())
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.get('/', (req, res)=> { res.send(db.users) })
 app.post('/signin', signin.handleSignin(db, bcrypt))
