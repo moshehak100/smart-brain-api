@@ -9,14 +9,25 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
+// local postgresql config
+// const db = knex({
+//   // connect to your own database here
+//   client: 'pg',
+//   connection: {
+//     host : 'postgresql-asymmetrical-57191',
+//     user : 'postgres',
+//     password : 'test',
+//     database : 'smart-brain'
+//   }
+// });
+
+// postgresql config for heroku
 const db = knex({
   // connect to your own database here
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
-    user : 'postgres',
-    password : 'test',
-    database : 'smart-brain'
+    connectionString : 'process.env.DATABASE_URL',
+    ssl: true
   }
 });
 
