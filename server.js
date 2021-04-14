@@ -36,6 +36,7 @@ const app = express();
 
 app.use(cors())
 app.use(express.json());
+console.log('using express.json');
 
 app.get('/', (req, res)=> { res.send(db.users) })
 app.post('/signin', signin.handleSignin(db, bcrypt))
