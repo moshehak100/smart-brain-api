@@ -1,7 +1,7 @@
 const handleRegister = (req, res, db, bcrypt) => {
   const { email, name, password } = req.body;
   console.log('register called ', email, name, password);
-  
+
   if (!email || !name || !password) {
     return res.status(400).json('incorrect form submission');
   }
@@ -31,7 +31,7 @@ const handleRegister = (req, res, db, bcrypt) => {
         trx.rollback;
       })
     })
-    .catch(err => res.status(400).json('unable to register'))
+    .catch(err => res.status(400).json('unable to register,', err))
 }
 
 module.exports = {
