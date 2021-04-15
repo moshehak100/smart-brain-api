@@ -13,14 +13,14 @@ const image = require('./controllers/image');
 //   // connect to your own database here
 //   client: 'pg',
 //   connection: {
-//     host : 'postgresql-asymmetrical-57191',
+//     host : '127.0.0.1',
 //     user : 'postgres',
 //     password : 'test',
 //     database : 'smart-brain'
 //   }
 // });
 
-// postgresql config for heroku
+//postgresql config for heroku
 const db = knex({
   // connect to your own database here
   client: 'pg',
